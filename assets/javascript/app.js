@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=NAKkHeBxebc7yukomDEoaFQUnJTPvrXd&";
-
   var searchButtons = ['dog', 'cat', 'bird', 'cute', 'dumb', 'moose', 'skateboarding', 'snowboarding', 'mountains', 'nature'];
 
   $(document).on('click', '.search-btn', function(){
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=NAKkHeBxebc7yukomDEoaFQUnJTPvrXd&";
+
     console.log(this);
 
     var query = $(this).text();
@@ -20,14 +20,15 @@ $(document).ready(function(){
       method: "GET"
     }).then(function(response){
       console.log(response);
+      $('.gif-holder').empty();
       response.data.forEach(function(gif){
         var gifDiv = $('<div>');
         var rating = $('<p>');
         var gifImg = $('<img>');
 
-        rating.text(gif.rating);
+        rating.text('Rating: ' + gif.rating);
 
-        gifImg.attr('src', gif.url);
+        gifImg.attr('src', gif.images.fixed_height.url);
 
         gifDiv.append(rating).append(gifImg);
 
@@ -44,6 +45,12 @@ $(document).ready(function(){
       $('#button-container').append(newButton);
     })
   }
+
+  $('.new-search-btn').on('click', function(){
+    var newValue = $('.gif-search').val();
+  })
+
+
 
   populateButtons()
 })
