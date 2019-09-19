@@ -12,7 +12,7 @@ $(document).ready(function(){
   function populateButtons(){
     $('#button-container').empty();
     searchButtons.forEach(function(button){
-      var newButton = $('<button class="search-btn btn btn-primary">')
+      var newButton = $('<button class="search-btn btn">')
       newButton.text(button);
       $('#button-container').append(newButton);
     })
@@ -20,14 +20,12 @@ $(document).ready(function(){
 
   $('.new-search-btn').on('click', function(){
     var newValue = $('.gif-search').val();
-    searchButtons.forEach(function(value){
-      if(searchButtons.includes(newValue)){
-        callGiphy(newValue)
-      } else {
-        searchButtons.push(newValue);
-        callGiphy(newValue);
-      }
-    })
+    if(searchButtons.includes(newValue)){
+      callGiphy(newValue)
+    } else {
+      searchButtons.push(newValue);
+      callGiphy(newValue);
+    }
     populateButtons();
   })
 
@@ -36,22 +34,17 @@ $(document).ready(function(){
 
     q = query
 
-    console.log(q);
-
     queryURL = queryURL + "limit=10&q=" + q;
-
-    console.log(queryURL)
 
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
-      console.log(response);
       $('.gif-holder').empty();
       response.data.forEach(function (gif) {
         var gifDiv = $('<div class="gifDiv">');
         var rating = $('<p>');
-        var gifImg = $('<img>');
+        var gifImg = $('<img class="gifImg">');
 
         rating.text('Rating: ' + gif.rating);
 

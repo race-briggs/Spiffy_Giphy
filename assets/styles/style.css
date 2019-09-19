@@ -3,14 +3,33 @@ hr {
   color: black;
 }
 
+body {
+  background-image: url("../images/pb-background.jpg");
+}
+
 .header {
   margin: 1.5% 0;
 }
 
 .search-btn {
   margin-right: 5px;
+  background-color: #a9b6c9;
+}
+
+p {
+  color: white;
 }
 
 #button-container {
   padding: 0;
+}
+
+.gifDiv {
+  display: inline-block;
+  width: 45%;
+  margin: 0 1%;
+}
+
+.gifImg {
+  width: 80%;
 }
