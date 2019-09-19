@@ -27,7 +27,7 @@ p {
 .gifDiv {
   display: inline-block;
   width: 45%;
-  margin: 0 1%;
+  margin: 0 1% 5% 1%;
 }
 
 .gifImg {
