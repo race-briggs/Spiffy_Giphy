@@ -1,0 +1,16 @@
+hr {
+  size: 5px;
+  color: black;
+}
+
+.header {
+  margin: 1.5% 0;
+}
+
+.search-btn {
+  margin-right: 5px;
+}
+
+#button-container {
+  padding: 0;
+}

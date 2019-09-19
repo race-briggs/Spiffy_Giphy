@@ -12,7 +12,7 @@ $(document).ready(function(){
   function populateButtons(){
     $('#button-container').empty();
     searchButtons.forEach(function(button){
-      var newButton = $('<button class="search-btn">')
+      var newButton = $('<button class="search-btn btn btn-primary">')
       newButton.text(button);
       $('#button-container').append(newButton);
     })
@@ -49,7 +49,7 @@ $(document).ready(function(){
       console.log(response);
       $('.gif-holder').empty();
       response.data.forEach(function (gif) {
-        var gifDiv = $('<div>');
+        var gifDiv = $('<div class="gifDiv">');
         var rating = $('<p>');
         var gifImg = $('<img>');
 
